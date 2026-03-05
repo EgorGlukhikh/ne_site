@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-zinc-50 text-zinc-900 antialiased;
+  position: relative;
+}
+
+html.dark body {
+  @apply bg-zinc-950 text-zinc-100;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 sm:py-12 lg:px-8;
+}
+
+.card {
+  @apply rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6;
+}
+
+.h1 {
+  @apply text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl;
+}
+
+.h2 {
+  @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+}
+
+.p-base {
+  @apply text-base leading-relaxed text-zinc-700 sm:text-lg;
+}
+
+.p-muted {
+  @apply text-sm leading-relaxed text-zinc-600 sm:text-base;
+}
+
+.icon-chip {
+  @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-accent;
+}
+
+.link-hover {
+  @apply transition duration-200 hover:text-accent;
+}
+
+.btn-primary {
+  @apply inline-flex items-center rounded-xl bg-accent px-4 py-2.5 font-medium text-white transition hover:opacity-90;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center rounded-xl border border-zinc-300 px-4 py-2.5 font-medium text-zinc-700 transition hover:bg-zinc-100;
+}
+
+.theme-toggle {
+  @apply inline-flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 bg-white text-base transition hover:bg-zinc-100;
+}
+
+.bg-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-ambient-glow {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(40% 40% at 15% 20%, rgba(239, 68, 68, 0.04), transparent 70%),
+    radial-gradient(30% 30% at 85% 10%, rgba(59, 130, 246, 0.03), transparent 70%),
+    radial-gradient(30% 30% at 70% 80%, rgba(16, 185, 129, 0.03), transparent 70%);
+  animation: ambient-drift 30s linear infinite;
+}
+
+.bg-ambient-pixels {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(24, 24, 27, 0.03) 0.8px, transparent 0.8px),
+    radial-gradient(rgba(24, 24, 27, 0.02) 0.6px, transparent 0.6px);
+  background-size: 28px 28px, 18px 18px;
+  background-position: 0 0, 9px 12px;
+  opacity: 0.16;
+  animation: pixel-float 24s ease-in-out infinite;
+}
+
+@keyframes ambient-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(1.2%, -1.5%, 0) scale(1.03); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes pixel-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+html.dark .bg-ambient-pixels {
+  background-image:
+    radial-gradient(rgba(244, 244, 245, 0.14) 0.8px, transparent 0.8px),
+    radial-gradient(rgba(244, 244, 245, 0.08) 0.6px, transparent 0.6px);
+  opacity: 0.22;
+}
+
+html.dark .card {
+  @apply border-zinc-800 bg-zinc-900;
+}
+
+html.dark .btn-ghost,
+html.dark .theme-toggle {
+  @apply border-zinc-700 bg-zinc-900 text-zinc-200 hover:bg-zinc-800;
+}
+
+html.dark .p-base,
+html.dark .p-muted,
+html.dark .muted,
+html.dark .text-zinc-700,
+html.dark .text-zinc-600,
+html.dark .text-zinc-500 {
+  color: rgb(212 212 216);
+}
+
+html.dark .border-zinc-200,
+html.dark .border-zinc-300 {
+  border-color: rgb(63 63 70);
+}
+
+html.dark .bg-white,
+html.dark .bg-zinc-50 {
+  background-color: rgb(24 24 27);
+}
+
+html.dark .hover\:bg-zinc-100:hover {
+  background-color: rgb(39 39 42);
+}
